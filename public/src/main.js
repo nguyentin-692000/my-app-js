@@ -25,8 +25,10 @@ router.on({
     "/about": () => {
         print(AboutPage.render())
     },
-    "/news/:id": () => {
-        print(NewDetails.render())
+    // destructuring data in navigo
+    "/news/:id": ({ data }) => {
+        const { id } = data;
+        print(NewDetails.render(id))
     }
 })
 
