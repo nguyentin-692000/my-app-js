@@ -1,12 +1,16 @@
 import Navigo from "navigo"
 import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 // tạo ra 1 đối tượng router từ class Navigo
 const router = new Navigo("/", { linksSelector: "a" });
 
 const render = (content) => {
-    document.querySelector("#app").innerHTML = content.print();
+    document.querySelector("#header").innerHTML = Header.print();
+    document.querySelector("#content").innerHTML = content.print();
+    document.querySelector("#footer").innerHTML = Footer.print();
 }
 
 
