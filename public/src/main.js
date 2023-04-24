@@ -1,16 +1,24 @@
 import Navigo from "navigo"
+import HomePage from "./pages/home";
+import AboutPage from "./pages/about";
 
 // tạo ra 1 đối tượng router từ class Navigo
-const router = new Navigo("/");
+const router = new Navigo("/", { linksSelector: "a" });
+
+const render = (content) => {
+    document.querySelector("#app").innerHTML = content.print();
+}
+
+
 
 // truy cập phương thức
 router.on({
     "/": () => {
-        console.log("Home Page");
+        render(HomePage)
     },
 
     "/about": () => {
-        console.log("About Page");
+        render(AboutPage)
     }
 })
 
