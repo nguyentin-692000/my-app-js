@@ -1,7 +1,7 @@
 import Nav from "./nav";
 
 const Header = {
-    print() {
+    render() {
         return /*html*/`
         <header class="max-w-5xl mx-auto">
             <div class="bg-blue-800 py-4">
@@ -9,7 +9,7 @@ const Header = {
             </div>
 
             <div class="bg-orange-500">
-                ${Nav.print()}
+                ${Nav.render()}
             </div>
         </header>
         `;

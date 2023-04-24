@@ -3,14 +3,15 @@ import HomePage from "./pages/home";
 import AboutPage from "./pages/about";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import NewDetails from "./pages/newDetails";
 
 // tạo ra 1 đối tượng router từ class Navigo
 const router = new Navigo("/", { linksSelector: "a" });
 
-const render = (content) => {
-    document.querySelector("#header").innerHTML = Header.print();
-    document.querySelector("#content").innerHTML = content.print();
-    document.querySelector("#footer").innerHTML = Footer.print();
+const print = (content) => {
+    document.querySelector("#header").innerHTML = Header.render();
+    document.querySelector("#content").innerHTML = content;
+    document.querySelector("#footer").innerHTML = Footer.render();
 }
 
 
@@ -18,11 +19,14 @@ const render = (content) => {
 // truy cập phương thức
 router.on({
     "/": () => {
-        render(HomePage)
+        print(HomePage.render())
     },
 
     "/about": () => {
-        render(AboutPage)
+        print(AboutPage.render())
+    },
+    "/news/:id": () => {
+        print(NewDetails.render())
     }
 })
 
